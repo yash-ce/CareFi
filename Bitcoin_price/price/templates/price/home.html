@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+          border:1px solid black;
+        }
+        </style>
+</head>
+<body>
+    
+    <h1>Home Page</h1>
+    
+        
+    
+    {% for i in price %}
+    
+      <table style="width:100%">
+    
+    <tr><td><h2>{{i.Symbol}}</h2></td>
+    <td><h2>{{i.price}}</h2></td>
+
+    <td><h2>{{ i.time}}</h2></td></tr>   
+    </table>
+    {% endfor %}
+    
+
+    <div>
+        <span>
+            {%  if price.has_previous %}
+            <a href="?page={{price.previous_page_number}}">Previous</a>
+            {% endif %}
+            <span>{{ price.number}}</span>
+            {% if price.has_next %}
+            <a href="?page={{price.next_page_number}}">Next</a>
+            {% endif %}
+        </span>
+    </div>
+    
+</body>
+</html>
